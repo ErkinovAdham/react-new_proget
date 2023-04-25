@@ -5,11 +5,11 @@ import SearchPanel from "../search-panel/search-panel"
 import AppFilter from "../app-filter/app-filter"
 const App = () => {
   return (
-    <div className="app">
+    <div className="app font-monospace">
         <div className="content">
            <AppInfo />
         </div>
-        <div>
+        <div className="search-panel">
             <SearchPanel />
         </div>
         <div>
