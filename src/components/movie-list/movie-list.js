@@ -1,13 +1,14 @@
-import MovieListItem from "../movie-list-item/movie-list-item";
 import "./movie-list.css";
 
-const MovieList = () => {
+import MovieListItem from "../movie-list-item/movie-list-item";
+
+const MovieList = ({data}) => {
   return (
-    <div className="movie-list">
-      <MovieListItem />
-      <MovieListItem />
-      <MovieListItem />
-    </div>
+    <ul className="movie-list">
+      {data.map(item =>(
+        <MovieListItem name={item.name} viewers={item.viewers} favourite={item.favourite} />         
+      ))}
+    </ul>
   );
 };
 
