@@ -4,7 +4,7 @@ import "./movie-list-item.css";
 class MovieListItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { favourite: false };
+    this.state = { favourite: false, like: true };
   }
 
   onFavorite = () => {
@@ -13,17 +13,23 @@ class MovieListItem extends Component {
     }));
   };
 
+  onLike = () => {
+    this.setState(({ like }) => ({
+      like: !like,
+    }));
+  };
+
   render() {
     const { name, viewers } = this.props;
-    const { favourite } = this.state;
+    const { favourite, like } = this.state;
 
     return (
       <li
         className={
-          "list-group-item d-flex justify-content-between ${favourite && `favourite`}"
+          "list-group-item d-flex justify-content-between ${favourite && `favourite`} ${like && `like`}"
         }
       >
-        <span className="list-group-item-label"> {name}</span>
+        <span onClick={this.onLike} className="list-group-item-label"> {name}</span>
         <input
           type="number"
           className="list-group-item-input"
